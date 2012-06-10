@@ -243,7 +243,7 @@ class MarkZilla {
                 }
                 
                 $localDir = rtrim($localPath, '/') . "/$filename";
-                if(is_dir($localPath)) {
+                if(file_exists($localDir) && is_dir($localDir)) {
                     $localAttr = array('mtime' => filemtime($localDir));
                     if ($localAttr['mtime'] == $remoteAttributes['mtime']) {
                         $this->output(__FUNCTION__ . "::Skipping same modified time subdir=$remoteDir" . HR);
